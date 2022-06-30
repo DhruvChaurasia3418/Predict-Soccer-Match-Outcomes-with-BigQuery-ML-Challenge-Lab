@@ -128,7 +128,7 @@ predicted_isGoal_probs[ORDINAL(1)].prob AS predictedGoalProb,
 * EXCEPT (predicted_isGoal, predicted_isGoal_probs),
 FROM
 ML.PREDICT(
-MODEL `soccer.xg_logistic_reg_model_238`,                                  *****************************************
+MODEL `soccer.xg_logistic_reg_model_238`,                      ***********
 (
 SELECT
    Events.playerId,
@@ -150,12 +150,12 @@ SELECT
    /* 101 is known Tag for 'goals' from goals table */
    (101 IN UNNEST(Events.tags.id)) AS isGoal,
 
-   `soccer.GetShotDistanceToGoal238`(Events.positions[ORDINAL(1)].x,          **************************************************
+   `soccer.GetShotDistanceToGoal238`(Events.positions[ORDINAL(1)].x,       *********
        Events.positions[ORDINAL(1)].y) AS shotDistance,
-   `soccer.GetShotAngleToGoal238`(Events.positions[ORDINAL(1)].x,            ************************************************
+   `soccer.GetShotAngleToGoal238`(Events.positions[ORDINAL(1)].x,         **********
        Events.positions[ORDINAL(1)].y) AS shotAngle
 FROM
-   `soccer.<enter table name given in the lab>` Events                        ************************************************
+   `soccer.<enter table name given in the lab>` Events                  **********
 LEFT JOIN
    `soccer.matches` Matches ON
        Events.matchId = Matches.wyId
