@@ -85,7 +85,7 @@ Copy code from Lab
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-CREATE MODEL `soccer.xg_logistic_reg_model_238`                        ****************************************
+CREATE MODEL `soccer.xg_logistic_reg_model_238`    ***********
 OPTIONS(
 model_type = 'LOGISTIC_REG',
 input_label_cols = ['isGoal']
@@ -94,12 +94,12 @@ SELECT
 Events.subEventName AS shotType,
 /* 101 is known Tag for 'goals' from goals table */
 (101 IN UNNEST(Events.tags.id)) AS isGoal,
-`soccer.GetShotDistanceToGoal238`(Events.positions[ORDINAL(1)].x,       **************************************
+`soccer.GetShotDistanceToGoal238`(Events.positions[ORDINAL(1)].x,      **********
 Events.positions[ORDINAL(1)].y) AS shotDistance,
-`soccer.GetShotAngleToGoal238`(Events.positions[ORDINAL(1)].x,          **************************************
+`soccer.GetShotAngleToGoal238`(Events.positions[ORDINAL(1)].x,          **********
 Events.positions[ORDINAL(1)].y) AS shotAngle
 FROM
-`soccer.<enter table name from th lab>` Events                      *******************************************
+`soccer.<enter table name from th lab>` Events               *****
 LEFT JOIN
 `soccer.matches` Matches ON
 Events.matchId = Matches.wyId
